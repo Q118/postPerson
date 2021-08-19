@@ -1,13 +1,24 @@
 import "bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-// section where we are going to add in the ke value pairs
-
+// section where we are going to add in the key value pairs
 const queryParamsContainer = document.querySelector('[data-query-params]')
 
 const requestHeadersContainer = document.querySelector('[data-request-headers]')
 
 const keyValueTemplate = document.querySelector('[data-key-value-template]')
+
+document
+    .querySelector("[data-add-query-param-btn]")
+    .addEventListener('click', () => {
+        queryParamsContainer.append(createKeyValuePair())
+    })
+
+document
+    .querySelector("[data-add-request-header-btn]")
+    .addEventListener('click', () => {
+        requestHeadersContainer.append(createKeyValuePair())
+    })
 
 queryParamsContainer.append(createKeyValuePair())
 requestHeadersContainer.append(createKeyValuePair())
