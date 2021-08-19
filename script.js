@@ -13,5 +13,11 @@ queryParamsContainer.append(createKeyValuePair())
 requestHeadersContainer.append(createKeyValuePair())
 
 function createKeyValuePair() {
-    const element = keyValueTemplate.textContent.cloneNode(true)
+    const element = keyValueTemplate.content.cloneNode(true)
+
+    element.querySelector('[data-remove-btn]').addEventListener('click', (e) => {
+        e.target.closest('[data-key-value-pair]').remove()
+    })
+
+    return element
 }
